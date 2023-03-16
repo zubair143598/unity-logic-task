@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Order Form</title>
+    <link rel="stylesheet" href="indix.css">
+    
+  </head>
+  <body>
+    <form>
+      <h1>Order Form</h1>
+      <div class="form-row">
+        <div class="form-col">
+          <div class="form-group">
+            <label for="collection-postcode">Collection Postcode</label>
+            <input
+              type="text"
+              id="collection-postcode"
+              name="collection_postcode"
+            />
+          </div>
+        </div>
+        <div class="form-col">
+          <div class="form-group">
+            <label for="delivery-postcode">Delivery Postcode</label>
+            <input
+              type="text"
+              id="delivery-postcode"
+              name="delivery_postcode"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-col">
+          <div class="form-group">
+            <label for="collection-date">Collection Date</label>
+            <input type="date" id="collection-date" name="collection_date" />
+          </div>
+        </div>
+        <div class="form-col">
+          <div class="form-group">
+            <label for="delivery-date">Delivery Date</label>
+            <input type="date" id="delivery-date" name="delivery" />
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="item">Item</label>
+        <select id="item" name="item">
+          <option value="item-1-30.00">Item 1</option>
+          <!-- <option value="item-2">Item 2</option> -->
+          <option value="item-2-10.00">Item 2</option>
+          <!-- <option value="item-3">Item 3</option> -->
+          <option value="item-3-20.00">Item 3</option>
+
+        </select>
+        <div class="price">Price: $0.00</div>
+      </div>
+      <div class="form-group">
+        <label for="collection-address">Collection Address</label>
+        <input type="text" id="collection-address" name="collection_address" />
+      </div>
+      <div class="form-group">
+        <label for="delivery-address">Delivery Address</label>
+        <input type="text" id="delivery-address" name="delivery_address" />
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Submit" />
+      </div>
+    </form>
+    <script>
+      // calculate price based on selected item
+      const itemSelect = document.getElementById("item");
+      const priceDiv = document.querySelector(".price");
+      itemSelect.addEventListener("change", (event) => {
+        const price = Number(event.target.value.slice(-5));
+        priceDiv.textContent = `Price: $${price.toFixed(2)}`;
+      });
+    </script>
+  </body>
+</html>
